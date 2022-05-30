@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { CardImg, Card, CardImgOverlay, CardTitle, CardBody, CardText, Form, FormGroup, Label, Input, Button, ModalHeader,ModalBody,ModalFooter,Modal } from 'reactstrap';
-
-function Gallery({ data }) {
+import { increment } from "../redux/Picture";
+import { connect } from "react-redux";
+import { Picture } from '../Gallery/Gallery';
+function mapState(state) {
+    return state;
+}
+function Gallery() {
+    const [photoList, setPhotoList] = useState([...Picture]);
     const [image, setImage] = useState(null);
     const [name, setUsername] = useState("");
     const [comment, setComment] = useState("");
@@ -109,7 +115,7 @@ Comment : ${comment}`
             );
     }
 
-    const renderPic = data.map((e) => {
+    const renderPic = photoList.map((e) => {
         return (
             <div className='col-12 col-md-5' >
                 <Card key={e.picId} onClick={() => handleClick(e)}>
@@ -134,4 +140,4 @@ Comment : ${comment}`
         </div>
     );
 }
-export default Gallery;
+export default connect(mapState, { increment })(Gallery);

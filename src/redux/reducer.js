@@ -1,9 +1,6 @@
-import { Picture } from "../share/Gallery";
-export const initialState = {
-    picture: Picture,
-    comments: Comments
+import { configureStore } from "@reduxjs/toolkit";
+import { Picture } from "../Gallery/Gallery";
+const store = () => {
+  return configureStore({ reducer: { picture:Picture } });
 };
-
-export const Reducer = (state = initialState, action) => {
-    return state;
-};
+export default store;

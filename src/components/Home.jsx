@@ -1,10 +1,20 @@
 import React from 'react'
 import "./Home.css"
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, CardGroup, Button } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, CardGroup, Button,Breadcrumb,BreadcrumbItem, } from "reactstrap";
 function Home() {
     return (
       <div className='body'>
             <div className="container">
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem>Home</BreadcrumbItem>
+                    <BreadcrumbItem active>Home</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>Home</h3>
+                    <hr />
+                </div>
+            </div>
             <CardGroup>
                 <Card>
                     <CardImg
