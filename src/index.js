@@ -7,12 +7,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
-
+import { Provider } from 'react-redux';
+import store1 from './redux/reducer';
+const store = store1();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( // add browserRouter
   <React.StrictMode>
     <BrowserRouter>
+    <Provider store={store}>
       <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
